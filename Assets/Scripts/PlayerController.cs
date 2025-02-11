@@ -60,4 +60,12 @@ public class PlayerController : MonoBehaviour
         rb.linearDamping = defaultDamping;
         canMove = true;
     }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if(collision.transform.TryGetComponent<Projectile>(out Projectile projectile))
+    //    {
+    //        projectile.sendMessage("Collided");
+    //    }
+    //}
 }
