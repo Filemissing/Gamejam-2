@@ -8,8 +8,8 @@ public class Projectile : MonoBehaviour
     [Header("Movement")]
     [SerializeField] protected AnimationCurve positionCurve;
     [SerializeField] protected AnimationCurve speedCurve;
-    [SerializeField] public Vector3 startPosition = new Vector3(0, 1, 0);
-    [SerializeField] public Vector3 endPosition = new Vector3(0, 1, 5);
+    [SerializeField] public Vector3 startPosition;
+    [SerializeField] public Vector3 endPosition;
 
     [SerializeField] public float moveTime = 1;
 

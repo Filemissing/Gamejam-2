@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4973857858932194848}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3, y: 1.19, z: 1.95}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -70,19 +70,19 @@ MonoBehaviour:
       inWeight: 0.558005
       outWeight: 0.057540175
     - serializedVersion: 3
-      time: 0.4925973
+      time: 0.8300984
       value: 1.5861324
-      inSlope: 0.44847545
-      outSlope: 0.44847545
+      inSlope: -0.35345453
+      outSlope: -0.35345453
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.08927801
-      outWeight: 0.91572607
+      outWeight: 0.9353284
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -3.1259837
-      outSlope: -3.1259837
+      inSlope: -9.335594
+      outSlope: -9.335594
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -117,6 +117,7 @@ MonoBehaviour:
   startPosition: {x: 0, y: 1, z: 0}
   endPosition: {x: 0, y: 1, z: -5}
   moveTime: 1
+  reward: 0
 --- !u!54 &5748608581171233669
 Rigidbody:
   m_ObjectHideFlags: 0

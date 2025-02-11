@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 1
-  speed: 10
+  speed: 1000
   edgeDistance: 3
   sleepKey: 32
   sleepTime: 2
@@ -672,10 +672,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b0fa5d312290341abc28256468da6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
   headSize: 0
   playerSpeed: 0
   timeSpeed: 0
-  book: {fileID: 6555697105454265468, guid: c16f00031f3bccf4e82d4f74c2431207, type: 3}
+  waves:
+  - books: 0
+  - books: 3
+  - books: 7
+  book: {fileID: 7485493167524531900, guid: c16f00031f3bccf4e82d4f74c2431207, type: 3}
 --- !u!4 &1640333855
 Transform:
   m_ObjectHideFlags: 0
