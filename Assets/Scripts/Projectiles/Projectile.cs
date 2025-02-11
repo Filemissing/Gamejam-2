@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Projectile : MonoBehaviour
 {
     protected PathType pathType;
@@ -29,8 +30,6 @@ public class Projectile : MonoBehaviour
             Vector3 nextPosition = startPosition;
             float timePercentage = (Time.time - startTime) / (endTime - startTime);
             float positionPercentage = speedCurve.Evaluate(timePercentage);
-
-            Debug.Log(positionPercentage);
 
             nextPosition.x += positionPercentage * (endPosition.x - startPosition.x);
             nextPosition.y += positionCurve.Evaluate(positionPercentage);

@@ -625,7 +625,7 @@ MonoBehaviour:
   headSize: 0
   playerSpeed: 0
   timeSpeed: 0
-  book: {fileID: 4973857858932194848, guid: a8b8b25f46c087b4ba8f2c2423d3a118, type: 3}
+  book: {fileID: 6555697105454265468, guid: c16f00031f3bccf4e82d4f74c2431207, type: 3}
 --- !u!4 &1640333855
 Transform:
   m_ObjectHideFlags: 0
