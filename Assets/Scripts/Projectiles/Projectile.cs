@@ -22,27 +22,8 @@ public class Projectile : MonoBehaviour
     }
 
 
-    void Awake()
+    void Move()
     {
-        startTime = Time.time;
-        endTime = Time.time + moveTime;
-
-        float randomCurveMuliplier = Random.Range(.80f, 1.20f);
-        for (int i = 0; i < positionCurve.keys.Length; i++)
-        {
-            positionCurve.keys[i].value *= randomCurveMuliplier;
-        }
-    }
-
-
-    void Update()
-    {
-        if (Time.time >= endTime) // Checks if not finished yet
-        {
-            Destroy(gameObject);
-            return;
-        }
-
         void MoveParabole()
         {
             Vector3 nextPosition = startPosition;
@@ -60,18 +41,44 @@ public class Projectile : MonoBehaviour
 
         switch (pathType) // Selecting correct movement method
         {
-        case PathType.Parabole:
-            MoveParabole();
-            break;
-        
-        case PathType.Boomerang:
-            Debug.Log("Boomerang");
-            break;
-        
-        default:
-            MoveParabole();
-            break;
+            case PathType.Parabole:
+                MoveParabole();
+                break;
+
+            case PathType.Boomerang:
+                Debug.Log("Boomerang");
+                break;
+
+            default:
+                MoveParabole();
+                break;
+        }
+    }
+
+
+    void Awake()
+    {
+        startTime = Time.time;
+        endTime = Time.time + moveTime;
+
+        float randomCurveMuliplier = Random.Range(.80f, 1.20f);
+        for (int i = 0; i < positionCurve.keys.Length; i++)
+        {
+            positionCurve.MoveKey(i, new Keyframe(positionCurve.keys[i].time, positionCurve.keys[i].value *= randomCurveMuliplier));
         }
 
+        Move();
+    }
+
+
+    void Update()
+    {
+        if (Time.time >= endTime) // Checks if not finished yet
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Move();
     }
 }
