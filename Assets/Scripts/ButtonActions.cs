@@ -12,4 +12,9 @@ public class ButtonActions : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
