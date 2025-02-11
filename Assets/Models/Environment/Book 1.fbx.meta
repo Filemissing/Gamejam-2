@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: df41f6c6776562c4a8db7c3bfff51f66
+guid: b5bf676b5964a364485695305d6beb61
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Wood
-    second: {fileID: 2100000, guid: 8f41c03b86dad0a4982927284641ca38, type: 2}
+      name: Book
+    second: {fileID: 2100000, guid: 05cb35bbe6e8f2e44a6f3f23cf0add69, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Paper
+    second: {fileID: 2100000, guid: cefbee4699f680b47b77c8cad573baf0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
