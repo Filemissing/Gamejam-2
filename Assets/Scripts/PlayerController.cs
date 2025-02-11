@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
         float input = Input.GetAxisRaw("Horizontal");
 
-        float targetSpeed = input * speed;
+        float targetSpeed = input * speed * Time.deltaTime;
 
         float difference = targetSpeed - rb.linearVelocity.x;
 
