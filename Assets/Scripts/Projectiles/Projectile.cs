@@ -70,7 +70,7 @@ public class Projectile : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         if (Time.time >= endTime) // Checks if not finished yet
         {

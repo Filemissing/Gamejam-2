@@ -4,12 +4,21 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public float headSize;
+    public int score;
+
+    public int headSize;
 
     public float playerSpeed;
     public float timeSpeed;
 
     public GameObject book;
+
+
+
+    void SpawnWave()
+    {
+        
+    }
 
 
 
