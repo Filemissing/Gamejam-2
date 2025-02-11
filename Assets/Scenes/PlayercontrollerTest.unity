@@ -1329,7 +1329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 1
-  speed: 10
+  speed: 5000
   edgeDistance: 3
   sleepKey: 32
   sleepTime: 2
