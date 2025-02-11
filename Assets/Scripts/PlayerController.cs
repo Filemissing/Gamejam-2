@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Accessibility;
 using UnityEngine.InputSystem;
@@ -61,11 +62,14 @@ public class PlayerController : MonoBehaviour
         canMove = true;
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if(collision.transform.TryGetComponent<Projectile>(out Projectile projectile))
-    //    {
-    //        projectile.sendMessage("Collided");
-    //    }
-    //}
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.CompareTag("Projectile"))
+        {
+            if (collision.transform.TryGetComponent<Projectile>(out Projectile projectile))
+            {
+                projectile.SendMessage("Collided");
+            } 
+        }
+    }
 }
