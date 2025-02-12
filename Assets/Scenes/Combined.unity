@@ -1244,6 +1244,14 @@ PrefabInstance:
       propertyPath: scaleFactor
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1916847533973450582, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
+      propertyPath: sleepMass
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1916847533973450582, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
+      propertyPath: defaultMass
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3145037451332834995, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1251,6 +1259,14 @@ PrefabInstance:
     - target: {fileID: 5047801701077043640, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
       propertyPath: m_ProvidesContacts
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561640752110722995, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
+      propertyPath: m_Drag
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561640752110722995, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
+      propertyPath: m_Mass
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1709,7 +1725,7 @@ MonoBehaviour:
   maxHealth: 2
   health: 2
   headSize: 1
-  playerSpeed: 5000
+  playerSpeed: 300000
   timeSpeed: 1
   book: {fileID: 6555697105454265468, guid: c16f00031f3bccf4e82d4f74c2431207, type: 3}
   endScreen: {fileID: 725609887}
