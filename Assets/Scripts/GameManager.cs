@@ -4,18 +4,28 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public int score;
+    public static PlayerController player;
 
-    public int health;
+    public int score = 0;
 
-    public int headSize;
+    public int maxHealth = 2;
+    public int health = 2;
+
+    public int headSize = 1;
 
     public float playerSpeed;
     public float timeSpeed;
 
     public GameObject book;
 
-
+    public CanvasGroup endScreen;
+    public void EndGame()
+    {
+        endScreen.alpha = 1.0f;
+        endScreen.interactable = true;
+        endScreen.blocksRaycasts = true;
+        player.enabled = false;
+    }
 
     void SpawnWave()
     {
@@ -29,6 +39,8 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null) instance = this;
 
-        GameObject newBook = Instantiate<GameObject>(book);
+        if(player == null) player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+
+        //GameObject newBook = Instantiate<GameObject>(book);
     }
 }
