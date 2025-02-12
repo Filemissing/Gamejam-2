@@ -197,8 +197,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bee5ef3e0fe72147b2789b50c826830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityMultiplier: 42.2
-  velocityUpMultiplier: 23.2
+  pathType: 0
+  startPosition: {x: 0, y: 2, z: 8}
+  endPosition: {x: 2.5, y: 2, z: -5}
+  velocityMultiplier: 58
+  velocityUpMultiplier: 12.5
   angularVelocityMultiplier: 3.65
   positionCurve:
     serializedVersion: 2
@@ -266,7 +269,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  startPosition: {x: 0, y: 2, z: 8}
-  endPosition: {x: 2.5, y: 2, z: -5}
   moveTime: 4
+  hitSounds: []
+  soundVolume: 1
   damage: 1

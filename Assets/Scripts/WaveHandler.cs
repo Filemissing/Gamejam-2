@@ -124,8 +124,8 @@ public class WaveHandler : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             Projectile newProjectile = Instantiate<Projectile>(projectile);
-            newProjectile.startPosition = new Vector3(Random.Range(-3f, 3f), 1, 10);
-            newProjectile.endPosition = new Vector3(Random.Range(-3f, 3f), 1, -4);
+            newProjectile.startPosition = new Vector3(Random.Range(-3f, 3f), 1, -.5f);
+            newProjectile.endPosition = new Vector3(Random.Range(-3f, 3f), 1, -5.3f);
             yield return new WaitForSeconds(cooldownList[i]);
         }
     }

@@ -2071,6 +2071,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1863980397}
   - component: {fileID: 1863980396}
+  - component: {fileID: 1863980398}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2115,6 +2116,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1863980398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863980395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1486afa96b14964fa9f6006c89c5285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - books: 4
+    swords: 2
+    bricks: 0
+    cannonBalls: 1
+  - books: 9
+    swords: 4
+    bricks: 0
+    cannonBalls: 1
+  - books: 16
+    swords: 7
+    bricks: 0
+    cannonBalls: 2
+  projectileCooldownMin: 0.2
+  projectileCooldownMax: 1
+  waveCooldown: 5
+  book: {fileID: 7347613383075310526, guid: c16f00031f3bccf4e82d4f74c2431207, type: 3}
+  sword: {fileID: 6053065077613815190, guid: dec62ff329577fa46b3ef3022beedad6, type: 3}
+  brick: {fileID: 5013907697387424334, guid: ae35e3facd45bc349bfdf8cb80cd2d2a, type: 3}
+  cannonBall: {fileID: 8816119654971962129, guid: bb7feadab63535641a41fb009cefdc19, type: 3}
 --- !u!1 &1882585421
 GameObject:
   m_ObjectHideFlags: 0

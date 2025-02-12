@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        StartCoroutine(BooksLoop());
+        //StartCoroutine(BooksLoop());
     }
 
     [Header("UI")]

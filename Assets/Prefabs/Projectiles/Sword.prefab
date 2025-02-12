@@ -360,8 +360,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathType: 2
-  velocityMultiplier: 43.6
-  velocityUpMultiplier: 27.6
+  startPosition: {x: 0, y: 2, z: 8}
+  endPosition: {x: 2.5, y: 2, z: -5}
+  velocityMultiplier: 58
+  velocityUpMultiplier: 12.5
   angularVelocityMultiplier: 5
   positionCurve:
     serializedVersion: 2
@@ -375,15 +377,13 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  startPosition: {x: 0, y: 2, z: 8}
-  endPosition: {x: 2.5, y: 2, z: -5}
   moveTime: 4
   hitSounds:
   - {fileID: 8300000, guid: 142d47f471f37a8498ff0d1d39a4bb71, type: 3}
   - {fileID: 8300000, guid: 90920c009e5470c448d4ac384ded3e87, type: 3}
   - {fileID: 8300000, guid: ca58d29d0be8dba49b04d8b6faae846a, type: 3}
   soundVolume: 1
-  damage: 0
+  damage: 1
 --- !u!4 &4135497113315242275 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5238556272242475798, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
