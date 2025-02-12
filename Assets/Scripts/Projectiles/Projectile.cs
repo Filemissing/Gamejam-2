@@ -12,12 +12,14 @@ public class Projectile : MonoBehaviour
     [SerializeField] float velocityMultiplier = 125;
     [SerializeField] float velocityUpMultiplier = 1.3f;
 
+    [SerializeField] [Range(0, 5)] float angularVelocityMultiplier = 2f;
+
     [Header("Boomerang")]
     [SerializeField] protected AnimationCurve positionCurve;
     [SerializeField] protected AnimationCurve speedCurve;
     [SerializeField] public Vector3 startPosition = new Vector3(0, 1, 0);
     [SerializeField] public Vector3 endPosition = new Vector3(0, 1, -5);
-    [SerializeField] public float moveTime = 1;
+    [SerializeField] public float moveTime = 4;
 
     protected float startTime = 0;
     protected float endTime = 0;
@@ -36,14 +38,26 @@ public class Projectile : MonoBehaviour
         {
             if (rb.isKinematic) // Checks if first time moving
             {
+                // Setting default values
                 transform.position = startPosition;
                 rb.isKinematic = false;
 
+
+                // Do velocity
                 Vector3 velocityVector = endPosition - startPosition;
                 velocityVector.y = velocityUpMultiplier; //* Mathf.Abs((velocityVector.z + velocityVector.x) / 2);
                 velocityVector *= velocityMultiplier;
 
                 rb.AddForce(velocityVector);
+
+
+                // Do angular velocity
+                float angularMin = -5f;
+                float angularMax = 5f;
+                Vector3 angularVelocityVector = new Vector3(Random.Range(angularMin, angularMax), Random.Range(angularMin, angularMax), Random.Range(angularMin, angularMax));
+                angularVelocityVector *= angularVelocityMultiplier;
+
+                rb.AddTorque(angularVelocityVector);
             }
 
 

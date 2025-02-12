@@ -355,6 +355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocityMultiplier: 38.2
   velocityUpMultiplier: 24.7
+  angularVelocityMultiplier: 3.65
   positionCurve:
     serializedVersion: 2
     m_Curve:
