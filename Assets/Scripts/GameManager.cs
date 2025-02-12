@@ -3,32 +3,30 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public static PlayerController player;
+    private void Awake()
+    {
+        if (instance == null) instance = this;
 
-    public int score;
+        if (player == null) player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+    }
 
     public int health;
 
     public int headSize;
 
-    public float playerSpeed;
-    public float timeSpeed;
+    public int headSize = 1;
 
-    public GameObject book;
-
-
-
-    void SpawnWave()
-    {
-        
-    }
-
+    public float playerSpeed = 5000;
+    public float timeSpeed = 1.0f;
 
 
 
     void Update()
     {
-        if (instance == null) instance = this;
+        if(health <= 0) EndGame();
 
-        GameObject newBook = Instantiate<GameObject>(book);
+        player.speed = playerSpeed;
+        Time.timeScale = timeSpeed;
     }
 }
