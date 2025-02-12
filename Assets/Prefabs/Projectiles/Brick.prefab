@@ -164,6 +164,7 @@ PrefabInstance:
     - {fileID: 1856208585269973253, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
     - {fileID: 3499699470756361839, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
     - {fileID: 8655323606537045216, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
+    - {fileID: 673324207582378139, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5238556272242475798, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
@@ -171,7 +172,7 @@ PrefabInstance:
       addedObject: {fileID: 869493047841774764}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4973857858932194848, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
-      insertIndex: -1
+      insertIndex: 1
       addedObject: {fileID: 5013907697387424334}
   m_SourcePrefab: {fileID: 100100000, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
 --- !u!4 &5818018729392718373 stripped

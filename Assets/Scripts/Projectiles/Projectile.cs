@@ -8,12 +8,18 @@ public class Projectile : MonoBehaviour
     protected PathType pathType;
 
     [Header("Movement")]
+    [Header("Parabole")]
+    [SerializeField] float velocityMultiplier = 125;
+    [SerializeField] float velocityUpMultiplier = 1.3f;
+
+    [SerializeField] [Range(0, 5)] float angularVelocityMultiplier = 2f;
+
+    [Header("Boomerang")]
     [SerializeField] protected AnimationCurve positionCurve;
     [SerializeField] protected AnimationCurve speedCurve;
-    [SerializeField] public Vector3 startPosition;
-    [SerializeField] public Vector3 endPosition;
-
-    [SerializeField] public float moveTime = 1;
+    [SerializeField] public Vector3 startPosition = new Vector3(0, 1, 0);
+    [SerializeField] public Vector3 endPosition = new Vector3(0, 1, -5);
+    [SerializeField] public float moveTime = 4;
 
     protected float startTime = 0;
     protected float endTime = 0;
@@ -29,6 +35,35 @@ public class Projectile : MonoBehaviour
     void Move()
     {
         void MoveParabole()
+        {
+            if (rb.isKinematic) // Checks if first time moving
+            {
+                // Setting default values
+                transform.position = startPosition;
+                rb.isKinematic = false;
+
+
+                // Do velocity
+                Vector3 velocityVector = endPosition - startPosition;
+                velocityVector.y = velocityUpMultiplier; //* Mathf.Abs((velocityVector.z + velocityVector.x) / 2);
+                velocityVector *= velocityMultiplier;
+
+                rb.AddForce(velocityVector);
+
+
+                // Do angular velocity
+                float angularMin = -5f;
+                float angularMax = 5f;
+                Vector3 angularVelocityVector = new Vector3(Random.Range(angularMin, angularMax), Random.Range(angularMin, angularMax), Random.Range(angularMin, angularMax));
+                angularVelocityVector *= angularVelocityMultiplier;
+
+                rb.AddTorque(angularVelocityVector);
+            }
+
+
+        }
+
+        void MoveBoomerang()
         {
             Vector3 nextPosition = startPosition;
             float timePercentage = (Time.time - startTime) / (endTime - startTime);
@@ -48,7 +83,7 @@ public class Projectile : MonoBehaviour
                 break;
 
             case PathType.Boomerang:
-                Debug.Log("Boomerang");
+                MoveBoomerang();
                 break;
 
             default:
@@ -73,10 +108,16 @@ public class Projectile : MonoBehaviour
         startTime = Time.time;
         endTime = Time.time + moveTime;
 
-        float randomCurveMuliplier = Random.Range(.80f, 1.20f);
-        for (int i = 0; i < positionCurve.keys.Length; i++)
+        switch (pathType) // Assign randomness
         {
-            positionCurve.MoveKey(i, new Keyframe(positionCurve.keys[i].time, positionCurve.keys[i].value *= randomCurveMuliplier));
+            case (PathType.Parabole):
+                break;
+
+            case (PathType.Boomerang):
+                float randomCurveMuliplier = Random.Range(.80f, 1.20f);
+                for (int i = 0; i < positionCurve.keys.Length; i++)
+                    positionCurve.MoveKey(i, new Keyframe(positionCurve.keys[i].time, positionCurve.keys[i].value *= randomCurveMuliplier));
+                break;
         }
 
         Move();

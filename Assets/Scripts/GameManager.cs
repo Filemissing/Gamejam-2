@@ -1,15 +1,10 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public static PlayerController player;
-    private void Awake()
-    {
-        if (instance == null) instance = this;
-
-        if (player == null) player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-    }
 
     public int score = 0;
 
@@ -20,6 +15,25 @@ public class GameManager : MonoBehaviour
 
     public float playerSpeed = 5000;
     public float timeSpeed = 1.0f;
+
+    public GameObject book;
+    void Awake()
+    {
+        if (instance == null) instance = this;
+
+        if (player == null) player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+
+        IEnumerator BooksLoop()
+        {
+            while (true)
+            {
+                GameObject newBook = Instantiate<GameObject>(book);
+                yield return new WaitForSeconds(.3f);
+            }
+        }
+
+        StartCoroutine(BooksLoop());
+    }
 
     public CanvasGroup endScreen;
     public void EndGame()
@@ -32,7 +46,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(health <= 0) EndGame();
+        if (instance == null) instance = this;
+
+        if (health <= 0) EndGame();
 
         player.speed = playerSpeed;
         Time.timeScale = timeSpeed;
