@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -93,21 +95,38 @@ public class Projectile : MonoBehaviour
     }
 
     protected bool alreadyCollided = false;
-    protected float collisionDampening = 2f;
+    protected float collisionDampening = 4f;
     public virtual void Collided(Collider other)
     {
         if(alreadyCollided) return;
         alreadyCollided = true;
 
-        Vector3 relativeVelocity = rb.linearVelocity - other.attachedRigidbody.linearVelocity;
-
         Vector3 collisionPoint = other.ClosestPoint(transform.position);
-
-        rb.AddForceAtPosition(-relativeVelocity, collisionPoint);
 
         Vector3 normal = (collisionPoint - other.transform.position).normalized;
 
         rb.linearVelocity = Vector3.Reflect(rb.linearVelocity / collisionDampening, normal);
+
+        // Do angular velocity
+        float angularMin = -5f;
+        float angularMax = 5f;
+        Vector3 angularVelocityVector = new Vector3(Random.Range(angularMin, angularMax), Random.Range(angularMin, angularMax), Random.Range(angularMin, angularMax));
+        angularVelocityVector *= angularVelocityMultiplier;
+
+        rb.AddTorque(angularVelocityVector);
+
+        StartCoroutine(ShrinkLoop());
+    }
+
+    float shrinkSpeed = 1f;
+    IEnumerator ShrinkLoop()
+    {
+        while (transform.localScale.x > 0)
+        {
+            transform.localScale -= Vector3.one * (shrinkSpeed * Time.deltaTime);
+            yield return null;
+        }
+        Destroy(gameObject);
     }
 
 

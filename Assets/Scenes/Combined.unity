@@ -1240,9 +1240,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1620436848890754384, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
+      propertyPath: scaleFactor
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 3145037451332834995, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5047801701077043640, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1445,7 +1453,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 75
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
