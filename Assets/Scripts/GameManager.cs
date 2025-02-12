@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 
     public int score;
 
+    public int health;
+
     public int headSize;
 
     public float playerSpeed;
