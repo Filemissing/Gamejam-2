@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         if (rb == null) throw new NullReferenceException("Rigidbody was not assigned correctly");
 
-        float input = Input.GetAxisRaw("Horizontal");
+        float input = Input.GetAxis("Horizontal");
 
         float targetSpeed = input * speed * Time.deltaTime;
 
