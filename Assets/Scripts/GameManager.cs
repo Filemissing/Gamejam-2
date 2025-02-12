@@ -11,16 +11,24 @@ public class GameManager : MonoBehaviour
         if (player == null) player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
-    public int health;
+    public int score = 0;
 
-    public int headSize;
+    public int maxHealth = 2;
+    public int health = 2;
 
     public int headSize = 1;
 
     public float playerSpeed = 5000;
     public float timeSpeed = 1.0f;
 
-
+    public CanvasGroup endScreen;
+    public void EndGame()
+    {
+        endScreen.alpha = 1.0f;
+        endScreen.interactable = true;
+        endScreen.blocksRaycasts = true;
+        player.enabled = false;
+    }
 
     void Update()
     {
