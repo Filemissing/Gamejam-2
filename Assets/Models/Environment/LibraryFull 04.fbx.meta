@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: ff1b672da4785f44d895d2ffc1ece799
+guid: 7ad1d47678bfad64d95bcbf7f1791411
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BooksForBookshelves
+    second: {fileID: 2100000, guid: c2c6c8466cb005b4688baa55982427e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CeilingMat
+    second: {fileID: 2100000, guid: 33336712569d6a14091b96764be73f49, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -39,15 +49,10 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: WoodLightMat
     second: {fileID: 2100000, guid: 4aa06441f4bdba14b80937c13ef4161f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: standardSurface1
-    second: {fileID: 2100000, guid: 33336712569d6a14091b96764be73f49, type: 2}
   materials:
     materialImportMode: 2
-    materialName: 0
-    materialSearch: 1
+    materialName: 1
+    materialSearch: 2
     materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
