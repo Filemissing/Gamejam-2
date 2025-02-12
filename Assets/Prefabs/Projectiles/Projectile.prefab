@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3499699470756361839}
   m_Layer: 0
   m_Name: Projectile
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,8 +115,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   startPosition: {x: 0, y: 1, z: 0}
-  endPosition: {x: 0, y: 1, z: 5}
+  endPosition: {x: 0, y: 1, z: -5}
   moveTime: 1
+  reward: 0
 --- !u!54 &5748608581171233669
 Rigidbody:
   m_ObjectHideFlags: 0

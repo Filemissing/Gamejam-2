@@ -29,9 +29,9 @@ public class PlayerController : MonoBehaviour
     {
         if (rb == null) throw new NullReferenceException("Rigidbody was not assigned correctly");
 
-        float input = Input.GetAxisRaw("Horizontal");
+        float input = Input.GetAxis("Horizontal");
 
-        float targetSpeed = input * speed;
+        float targetSpeed = input * speed * Time.deltaTime;
 
         float difference = targetSpeed - rb.linearVelocity.x;
 
@@ -64,12 +64,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("collided");
         if (collision.transform.CompareTag("Projectile"))
         {
             if (collision.transform.TryGetComponent<Projectile>(out Projectile projectile))
             {
                 projectile.SendMessage("Collided");
-            } 
+            }
         }
     }
 }

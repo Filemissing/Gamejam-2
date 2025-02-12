@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Projectile : MonoBehaviour
 {
+    Rigidbody rb;
+
     protected PathType pathType;
 
     [Header("Movement")]
@@ -15,6 +17,7 @@ public class Projectile : MonoBehaviour
 
     protected float startTime = 0;
     protected float endTime = 0;
+    protected float destroyTime;
 
     protected enum PathType
     {
@@ -54,9 +57,19 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    protected bool alreadyCollided = false;
+    public virtual void Collided()
+    {
+        if(alreadyCollided) return;
+        alreadyCollided = true;
+        rb.isKinematic = true;
+    }
+
 
     void Awake()
     {
+        rb = GetComponent<Rigidbody>();
+
         startTime = Time.time;
         endTime = Time.time + moveTime;
 
@@ -70,9 +83,9 @@ public class Projectile : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
-        if (Time.time >= endTime) // Checks if not finished yet
+        if (Time.time >= endTime + destroyTime) // Checks if not finished yet
         {
             Destroy(gameObject);
             return;
