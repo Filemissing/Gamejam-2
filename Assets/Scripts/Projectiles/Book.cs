@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Book : Projectile
 {
+    [Header("Book")]
     [SerializeField] Reward reward;
 
     enum Reward

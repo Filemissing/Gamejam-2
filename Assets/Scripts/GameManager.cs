@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -21,6 +22,23 @@ public class GameManager : MonoBehaviour
     public float playerSpeed = 5000;
     public float timeSpeed = 1.0f;
 
+
+
+
+    void Awake()
+    {
+        IEnumerator BooksLoop()
+        {
+            while (true)
+            {
+                GameObject newBook = Instantiate<GameObject>(book);
+                yield return new WaitForSeconds(.3f);
+            }
+        }
+
+        StartCoroutine(BooksLoop());
+    }
+
     public CanvasGroup endScreen;
     public void EndGame()
     {
@@ -32,7 +50,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(health <= 0) EndGame();
+        if (instance == null) instance = this;
+
+        if (health <= 0) EndGame();
 
         player.speed = playerSpeed;
         Time.timeScale = timeSpeed;

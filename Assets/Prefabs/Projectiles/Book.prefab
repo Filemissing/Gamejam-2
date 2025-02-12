@@ -310,25 +310,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5748608581171233669, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8655323606537045216, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
-      propertyPath: endPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8655323606537045216, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
-      propertyPath: endPosition.z
-      value: -7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8655323606537045216, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
-      propertyPath: startPosition.y
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1856208585269973253, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
     - {fileID: 3499699470756361839, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
+    - {fileID: 8655323606537045216, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
+    - {fileID: 673324207582378139, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5238556272242475798, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
@@ -340,10 +326,103 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5238556272242475798, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4010172948233427030}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4973857858932194848, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 7347613383075310526}
   m_SourcePrefab: {fileID: 100100000, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
 --- !u!4 &6291288688402893130 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5238556272242475798, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
   m_PrefabInstance: {fileID: 2304772729491442268}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6555697105454265468 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4973857858932194848, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
+  m_PrefabInstance: {fileID: 2304772729491442268}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7347613383075310526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6555697105454265468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8c760730c62f14a90920ee5d0b0124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocityMultiplier: 38.2
+  velocityUpMultiplier: 24.7
+  angularVelocityMultiplier: 3.65
+  positionCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 9.1048155
+      outSlope: 9.1048155
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.13242875
+      value: 1.2057394
+      inSlope: 2.7860146
+      outSlope: 2.7860146
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.558005
+      outWeight: 0.057540175
+    - serializedVersion: 3
+      time: 0.4925973
+      value: 1.5861324
+      inSlope: 0.44847545
+      outSlope: 0.44847545
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.08927801
+      outWeight: 0.91572607
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -3.1259837
+      outSlope: -3.1259837
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  speedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  startPosition: {x: 0, y: 2, z: 8}
+  endPosition: {x: 2.5, y: 2, z: -5}
+  moveTime: 4
+  reward: 0
