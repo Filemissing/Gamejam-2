@@ -10,12 +10,7 @@ public class PlayerHead : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("Projectile"))
-        {
-            if (collision.transform.TryGetComponent<Projectile>(out Projectile projectile))
-            {
-                projectile.SendMessage("Collided");
-            }
-        }
+        Debug.Log("collided Head");
+        
     }
 }

@@ -6,6 +6,7 @@ public class Brick : Projectile
 
     public override void Collided()
     {
+        if(alreadyCollided) return;
         base.Collided();
         GameManager.instance.health -= damage;
     }

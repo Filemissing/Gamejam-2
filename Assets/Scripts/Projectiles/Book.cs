@@ -13,6 +13,7 @@ public class Book : Projectile
 
     public override void Collided()
     {
+        if(alreadyCollided) return;
         base.Collided();
         switch (reward)
         {

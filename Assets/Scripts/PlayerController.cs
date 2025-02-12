@@ -61,4 +61,16 @@ public class PlayerController : MonoBehaviour
         rb.linearDamping = defaultDamping;
         canMove = true;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("collided");
+        if (collision.transform.CompareTag("Projectile"))
+        {
+            if (collision.transform.TryGetComponent<Projectile>(out Projectile projectile))
+            {
+                projectile.SendMessage("Collided");
+            }
+        }
+    }
 }

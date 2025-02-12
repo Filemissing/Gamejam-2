@@ -57,9 +57,11 @@ public class Projectile : MonoBehaviour
         }
     }
 
-
+    protected bool alreadyCollided = false;
     public virtual void Collided()
     {
+        if(alreadyCollided) return;
+        alreadyCollided = true;
         rb.isKinematic = true;
     }
 
