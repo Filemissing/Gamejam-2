@@ -12,10 +12,10 @@ public class Book : Projectile
         TimeSpeed
     }
 
-    public override void Collided()
+    public override void Collided(Collider other)
     {
         if(alreadyCollided) return;
-        base.Collided();
+        base.Collided(other);
         switch (reward)
         {
             case Reward.None:

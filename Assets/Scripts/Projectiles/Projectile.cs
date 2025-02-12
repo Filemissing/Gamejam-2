@@ -23,7 +23,7 @@ public class Projectile : MonoBehaviour
 
     protected float startTime = 0;
     protected float endTime = 0;
-    protected float destroyTime;
+    protected float destroyTime = 4;
 
     protected enum PathType
     {
@@ -93,11 +93,21 @@ public class Projectile : MonoBehaviour
     }
 
     protected bool alreadyCollided = false;
-    public virtual void Collided()
+    protected float collisionDampening = 2f;
+    public virtual void Collided(Collider other)
     {
         if(alreadyCollided) return;
         alreadyCollided = true;
-        rb.isKinematic = true;
+
+        Vector3 relativeVelocity = rb.linearVelocity - other.attachedRigidbody.linearVelocity;
+
+        Vector3 collisionPoint = other.ClosestPoint(transform.position);
+
+        rb.AddForceAtPosition(-relativeVelocity, collisionPoint);
+
+        Vector3 normal = (collisionPoint - other.transform.position).normalized;
+
+        rb.linearVelocity = Vector3.Reflect(rb.linearVelocity / collisionDampening, normal);
     }
 
 
