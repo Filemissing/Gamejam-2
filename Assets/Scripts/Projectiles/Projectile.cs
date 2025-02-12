@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -23,7 +25,7 @@ public class Projectile : MonoBehaviour
 
     protected float startTime = 0;
     protected float endTime = 0;
-    protected float destroyTime;
+    protected float destroyTime = 4;
 
     protected enum PathType
     {
@@ -93,11 +95,38 @@ public class Projectile : MonoBehaviour
     }
 
     protected bool alreadyCollided = false;
-    public virtual void Collided()
+    protected float collisionDampening = 4f;
+    public virtual void Collided(Collider other)
     {
         if(alreadyCollided) return;
         alreadyCollided = true;
-        rb.isKinematic = true;
+
+        Vector3 collisionPoint = other.ClosestPoint(transform.position);
+
+        Vector3 normal = (collisionPoint - other.transform.position).normalized;
+
+        rb.linearVelocity = Vector3.Reflect(rb.linearVelocity / collisionDampening, normal);
+
+        // Do angular velocity
+        float angularMin = -5f;
+        float angularMax = 5f;
+        Vector3 angularVelocityVector = new Vector3(Random.Range(angularMin, angularMax), Random.Range(angularMin, angularMax), Random.Range(angularMin, angularMax));
+        angularVelocityVector *= angularVelocityMultiplier;
+
+        rb.AddTorque(angularVelocityVector);
+
+        StartCoroutine(ShrinkLoop());
+    }
+
+    float shrinkSpeed = 1f;
+    IEnumerator ShrinkLoop()
+    {
+        while (transform.localScale.x > 0)
+        {
+            transform.localScale -= Vector3.one * (shrinkSpeed * Time.deltaTime);
+            yield return null;
+        }
+        Destroy(gameObject);
     }
 
 
