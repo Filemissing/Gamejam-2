@@ -17,6 +17,7 @@ public class WaveHandler : MonoBehaviour
 
     [Header("Projectiles")]
     public Projectile book;
+    public Projectile sword;
     public Projectile brick;
     public Projectile cannonBall;
 
@@ -59,10 +60,12 @@ public class WaveHandler : MonoBehaviour
 
             // Add more wave variables when added
             List<float> cooldownListBook = AssignCooldowns(wave.books);
+            List<float> cooldownListSword = AssignCooldowns(wave.swords);
             List<float> cooldownListBrick = AssignCooldowns(wave.bricks);
             List<float> cooldownListCannonBall = AssignCooldowns(wave.cannonBalls);
 
             lists.Add(cooldownListBook);
+            lists.Add(cooldownListSword);
             lists.Add(cooldownListBrick);
             lists.Add(cooldownListCannonBall);
 
@@ -83,6 +86,7 @@ public class WaveHandler : MonoBehaviour
 
             // Add more wave variables when added
             StartCoroutine(SpawnProjectile(book, wave.books, UpdateCooldowns(cooldownListBook, highestCooldown)));
+            StartCoroutine(SpawnProjectile(sword, wave.swords, UpdateCooldowns(cooldownListSword, highestCooldown)));
             StartCoroutine(SpawnProjectile(brick, wave.bricks, UpdateCooldowns(cooldownListBrick, highestCooldown)));
             StartCoroutine(SpawnProjectile(cannonBall, wave.cannonBalls, UpdateCooldowns(cooldownListCannonBall, highestCooldown)));
 
@@ -104,6 +108,7 @@ public class WaveHandler : MonoBehaviour
 
             // Add more wave variables when added
             wave.books = (int)(wave.books * (1 + ((float)waveIndex - (float)waves.Length) / 7));
+            wave.swords = (int)(wave.swords * (1 + ((float)waveIndex - (float)waves.Length) / 7));
             wave.bricks = (int)(wave.bricks * (1 + ((float)waveIndex - (float)waves.Length) / 7));
             wave.cannonBalls = (int)(wave.cannonBalls * (1 + ((float)waveIndex - (float)waves.Length) / 7));
 
