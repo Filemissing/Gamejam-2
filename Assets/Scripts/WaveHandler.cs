@@ -36,8 +36,22 @@ public class WaveHandler : MonoBehaviour
                 return cooldownList;
             }
 
+            List<float> UpdateCooldowns(List<float> cooldownList, float highestCooldown)
+            {
+                float totalCooldown = 0;
+                foreach (float cooldown in cooldownList)
+                    totalCooldown += cooldown;
+                
+                if (totalCooldown != highestCooldown) // Checks if isent the highest cooldown
+                {
+                    for (int i = 0; i < cooldownList.Count; i++)
+                        cooldownList[i] = cooldownList[i] / totalCooldown * highestCooldown;
+                }
 
-            // Gets highest cooldown
+                return cooldownList;
+            }
+
+
             float highestCooldown = 0;
             List<List<float>> lists = new List<List<float>>();
 
@@ -48,17 +62,13 @@ public class WaveHandler : MonoBehaviour
             List<float> cooldownListBrick = AssignCooldowns(wave.bricks);
             List<float> cooldownListCannonBall = AssignCooldowns(wave.cannonBalls);
 
-            StartCoroutine(SpawnProjectile(book, wave.books, cooldownListBook));
-            StartCoroutine(SpawnProjectile(brick, wave.bricks, cooldownListBrick));
-            StartCoroutine(SpawnProjectile(cannonBall, wave.cannonBalls, cooldownListCannonBall));
-
-
             lists.Add(cooldownListBook);
             lists.Add(cooldownListBrick);
             lists.Add(cooldownListCannonBall);
 
 
 
+            // Gets highest cooldown
             foreach (List<float> list in lists)
             {
                 float totalCooldown = 0;
@@ -68,6 +78,15 @@ public class WaveHandler : MonoBehaviour
                 if (totalCooldown > highestCooldown)
                     highestCooldown = totalCooldown;
             }
+
+
+
+            // Add more wave variables when added
+            StartCoroutine(SpawnProjectile(book, wave.books, UpdateCooldowns(cooldownListBook, highestCooldown)));
+            StartCoroutine(SpawnProjectile(brick, wave.bricks, UpdateCooldowns(cooldownListBrick, highestCooldown)));
+            StartCoroutine(SpawnProjectile(cannonBall, wave.cannonBalls, UpdateCooldowns(cooldownListCannonBall, highestCooldown)));
+
+
 
             // Sets next wave time using highest amount
             nextWaveTime = Time.timeSinceLevelLoad + highestCooldown + waveCooldown;
