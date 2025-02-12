@@ -17,6 +17,8 @@ public class WaveHandler : MonoBehaviour
 
     [Header("Projectiles")]
     public Projectile book;
+    public Projectile brick;
+    public Projectile cannonBall;
 
 
 
@@ -34,9 +36,6 @@ public class WaveHandler : MonoBehaviour
                 return cooldownList;
             }
 
-            List<float> cooldownListBook = AssignCooldowns(wave.books);
-
-            StartCoroutine(SpawnProjectile(book, wave.books, cooldownListBook));
 
             // Gets highest cooldown
             float highestCooldown = 0;
@@ -45,7 +44,18 @@ public class WaveHandler : MonoBehaviour
 
 
             // Add more wave variables when added
+            List<float> cooldownListBook = AssignCooldowns(wave.books);
+            List<float> cooldownListBrick = AssignCooldowns(wave.bricks);
+            List<float> cooldownListCannonBall = AssignCooldowns(wave.cannonBalls);
+
+            StartCoroutine(SpawnProjectile(book, wave.books, cooldownListBook));
+            StartCoroutine(SpawnProjectile(brick, wave.bricks, cooldownListBrick));
+            StartCoroutine(SpawnProjectile(cannonBall, wave.cannonBalls, cooldownListCannonBall));
+
+
             lists.Add(cooldownListBook);
+            lists.Add(cooldownListBrick);
+            lists.Add(cooldownListCannonBall);
 
 
 
@@ -75,6 +85,8 @@ public class WaveHandler : MonoBehaviour
 
             // Add more wave variables when added
             wave.books = (int)(wave.books * (1 + ((float)waveIndex - (float)waves.Length) / 7));
+            wave.bricks = (int)(wave.bricks * (1 + ((float)waveIndex - (float)waves.Length) / 7));
+            wave.cannonBalls = (int)(wave.cannonBalls * (1 + ((float)waveIndex - (float)waves.Length) / 7));
 
 
 
