@@ -87,7 +87,6 @@ public class Projectile : MonoBehaviour
             if (rb.isKinematic) // Checks if first time moving
             {
                 // Setting default values
-                Debug.Log(startPosition);
                 transform.position = startPosition;
                 rb.isKinematic = false;
 
