@@ -1427,6 +1427,10 @@ PrefabInstance:
       propertyPath: m_ProvidesContacts
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6577347433284631078, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
+      propertyPath: hat
+      value: 
+      objectReference: {fileID: 1612890104}
     - target: {fileID: 8561640752110722995, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
       propertyPath: m_Drag
       value: 38
@@ -1713,6 +1717,11 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!4 &1612890104 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6233201588924105992, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
+  m_PrefabInstance: {fileID: 1448839573}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1670011805
 GameObject:
   m_ObjectHideFlags: 0
@@ -1897,6 +1906,7 @@ MonoBehaviour:
   book: {fileID: 6555697105454265468, guid: c16f00031f3bccf4e82d4f74c2431207, type: 3}
   endScreen: {fileID: 725609887}
   HUD: {fileID: 905059625}
+  gameEnded: 0
 --- !u!4 &1863980397
 Transform:
   m_ObjectHideFlags: 0
