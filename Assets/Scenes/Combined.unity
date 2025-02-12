@@ -1407,6 +1407,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4832219941094151175, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832219941094151175, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832219941094151175, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832219941094151175, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5047801701077043640, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
       propertyPath: m_ProvidesContacts
       value: 1

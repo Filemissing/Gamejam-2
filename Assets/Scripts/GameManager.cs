@@ -39,23 +39,48 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     public CanvasGroup endScreen;
     public CanvasGroup HUD;
-    public void EndGame()
+    [HideInInspector] public bool gameEnded;
+    public IEnumerator EndGame()
     {
+        gameEnded = true;
+
+        player.rb.linearVelocity = Vector3.zero;
+        player.enabled = false;
+
+        float headaExplodeSize = player.headCollider.transform.localScale.x + 1;
+        while (player.headCollider.transform.localScale.x < headaExplodeSize)
+        {
+            player.headCollider.transform.localScale = player.headCollider.transform.localScale + Vector3.one * .05f;
+            Debug.Log(player.headCollider.transform.localScale);
+            Debug.Log(headaExplodeSize);
+            yield return null;
+        }
+        Destroy(player.headCollider.gameObject);
+
         endScreen.alpha = 1.0f;
         endScreen.interactable = true;
         endScreen.blocksRaycasts = true;
 
         HUD.alpha = 0;
 
-        player.rb.linearVelocity = Vector3.zero;
-        player.enabled = false;
+        while (Time.timeScale > 0.05f)
+        {
+            Time.timeScale -= .05f;
+            Debug.Log(Time.timeScale);
+            yield return null;
+        }
+        if(Time.timeScale != 0)
+        {
+            Time.timeScale = 0;
+        }
     }
 
     void Update()
     {
         if (instance == null) instance = this;
 
-        if (health <= 0) EndGame();
+        if (!gameEnded && health <= 0) StartCoroutine(EndGame());
+        else if (gameEnded) return;
 
         player.speed = playerSpeed;
         Time.timeScale = timeSpeed;
