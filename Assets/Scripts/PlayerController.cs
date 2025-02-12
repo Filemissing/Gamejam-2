@@ -8,8 +8,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody rb;
-    SphereCollider headCollider;
+    [HideInInspector] public Rigidbody rb;
+    [HideInInspector] public SphereCollider headCollider;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
