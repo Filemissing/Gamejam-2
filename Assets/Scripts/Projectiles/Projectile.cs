@@ -6,20 +6,20 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     Rigidbody rb;
-
-    protected PathType pathType;
+    AudioSource audioSource;
 
     [Header("Movement")]
+    [SerializeField] protected PathType pathType;
+    [SerializeField] public Vector3 startPosition = new Vector3(0, 1, 0);
+
     [Header("Parabole")]
     [SerializeField] float velocityMultiplier = 125;
     [SerializeField] float velocityUpMultiplier = 1.3f;
-
     [SerializeField] [Range(0, 5)] float angularVelocityMultiplier = 2f;
 
     [Header("Boomerang")]
     [SerializeField] protected AnimationCurve positionCurve;
     [SerializeField] protected AnimationCurve speedCurve;
-    [SerializeField] public Vector3 startPosition = new Vector3(0, 1, 0);
     [SerializeField] public Vector3 endPosition = new Vector3(0, 1, -5);
     [SerializeField] public float moveTime = 4;
 
@@ -30,8 +30,14 @@ public class Projectile : MonoBehaviour
     protected enum PathType
     {
         Parabole,
-        Boomerang
+        Boomerang,
+        Sword
     }
+
+
+    [Header("Sound")]
+    [SerializeField] AudioClip[] hitSounds;
+    [SerializeField] float soundVolume = 1;
 
 
     void Move()
@@ -61,8 +67,6 @@ public class Projectile : MonoBehaviour
 
                 rb.AddTorque(angularVelocityVector);
             }
-
-
         }
 
         void MoveBoomerang()
@@ -78,6 +82,31 @@ public class Projectile : MonoBehaviour
             transform.position = nextPosition;
         }
 
+        void MoveSword()
+        {
+            if (rb.isKinematic) // Checks if first time moving
+            {
+                // Setting default values
+                transform.position = startPosition;
+                rb.isKinematic = false;
+
+
+                // Do velocity
+                Vector3 velocityVector = endPosition - startPosition;
+                velocityVector.y = velocityUpMultiplier; //* Mathf.Abs((velocityVector.z + velocityVector.x) / 2);
+                velocityVector *= velocityMultiplier;
+
+                rb.AddForce(velocityVector);
+
+
+                // Do angular velocity
+                Vector3 angularVelocityVector = new Vector3(40 * Random.Range(.8f, 1.2f), 0, 0);
+                angularVelocityVector *= angularVelocityMultiplier;
+
+                rb.AddTorque(angularVelocityVector);
+            }
+        }
+
         switch (pathType) // Selecting correct movement method
         {
             case PathType.Parabole:
@@ -86,6 +115,10 @@ public class Projectile : MonoBehaviour
 
             case PathType.Boomerang:
                 MoveBoomerang();
+                break;
+
+            case PathType.Sword:
+                MoveSword();
                 break;
 
             default:
@@ -98,6 +131,15 @@ public class Projectile : MonoBehaviour
     protected float collisionDampening = 4f;
     public virtual void Collided(Collider other)
     {
+        // Play random hit sound
+        if (hitSounds.Length > 0)
+        {
+            audioSource.clip = hitSounds[Random.Range(0, hitSounds.Length)];
+            audioSource.volume = soundVolume;
+            audioSource.Play();
+        }
+
+
         if(alreadyCollided) return;
         alreadyCollided = true;
 
@@ -133,6 +175,7 @@ public class Projectile : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
 
         startTime = Time.time;
         endTime = Time.time + moveTime;
@@ -146,6 +189,9 @@ public class Projectile : MonoBehaviour
                 float randomCurveMuliplier = Random.Range(.80f, 1.20f);
                 for (int i = 0; i < positionCurve.keys.Length; i++)
                     positionCurve.MoveKey(i, new Keyframe(positionCurve.keys[i].time, positionCurve.keys[i].value *= randomCurveMuliplier));
+                break;
+            
+            case (PathType.Sword):
                 break;
         }
 
