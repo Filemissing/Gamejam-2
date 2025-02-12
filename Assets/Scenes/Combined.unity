@@ -1240,9 +1240,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1916847533973450582, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
+      propertyPath: speed
+      value: 300000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1916847533973450582, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
+      propertyPath: sleepMass
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1916847533973450582, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
+      propertyPath: defaultMass
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3145037451332834995, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561640752110722995, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
+      propertyPath: m_Drag
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561640752110722995, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
+      propertyPath: m_Mass
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1701,7 +1721,7 @@ MonoBehaviour:
   maxHealth: 2
   health: 2
   headSize: 1
-  playerSpeed: 5000
+  playerSpeed: 300000
   timeSpeed: 1
   endScreen: {fileID: 725609887}
 --- !u!4 &1863980397

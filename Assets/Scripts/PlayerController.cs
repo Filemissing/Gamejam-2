@@ -9,15 +9,28 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody rb;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
 
+    void CheckIsSleeping()
+    {
+        if (!isSleeping) // Check if player is sleeping
+            return;
+
+        if (lastDownSizeTime <= Time.time - downSizeCooldown) // Checks if should decrease headSize
+        {
+            lastDownSizeTime = Time.time;
+            GameManager.instance.headSize = (int)Mathf.Clamp(GameManager.instance.headSize - 1, 0, Mathf.Infinity);
+        }
+    }
+
     private void Update()
     {
         Move();
-
+        CheckIsSleeping();
         Sleep();
     }
 
@@ -25,6 +38,10 @@ public class PlayerController : MonoBehaviour
     public bool canMove = true;
     public float speed;
     public float edgeDistance;
+    bool isSleeping = false;
+    float lastDownSizeTime = 0;
+    float downSizeCooldown = .4f;
+
     void Move()
     {
         if (rb == null) throw new NullReferenceException("Rigidbody was not assigned correctly");
@@ -33,33 +50,40 @@ public class PlayerController : MonoBehaviour
 
         float targetSpeed = input * speed * Time.deltaTime;
 
-        float difference = targetSpeed - rb.linearVelocity.x;
+        float difference = targetSpeed;// - rb.linearVelocity.x;
 
         if (canMove) rb.AddForce(difference, 0, 0);
+        else rb.AddForce(rb.linearVelocity.x, 0, 0);
 
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -edgeDistance, edgeDistance), transform.position.y, transform.position.z);
     }
 
     [Header("Sleep")]
     [SerializeField] KeyCode sleepKey = KeyCode.Space;
-    [Tooltip("Time is in seconds")] public float sleepTime = 2f;
-    public float defaultDamping = 0f;
-    public float sleepDamping = 2f;
+    [Tooltip("Time is in seconds")] public float sleepStopDelay = 1f;
+    public float defaultMass = 1f;
+    public float sleepMass = 4f;
     void Sleep()
     {
-        if(Input.GetKeyDown(sleepKey) && canMove)
+        if(Input.GetKeyDown(sleepKey) && !isSleeping)
         {
-            StartCoroutine(SleepWait(sleepTime));
+            isSleeping = true;
+            canMove = false;
+            rb.mass = sleepMass;
+            lastDownSizeTime = Time.time;
         }
-    }
+        if (Input.GetKeyUp(sleepKey) && isSleeping)
+        {
+            IEnumerator StopSleeping()
+            {
+                yield return new WaitForSeconds(sleepStopDelay);
+                isSleeping = false;
+                canMove = true;
+                rb.mass = defaultMass;
+            }
 
-    IEnumerator SleepWait(float seconds)
-    {
-        canMove = false;
-        rb.linearDamping = sleepDamping;
-        yield return new WaitForSeconds(seconds);
-        rb.linearDamping = defaultDamping;
-        canMove = true;
+            StartCoroutine(StopSleeping());
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -73,4 +97,22 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+
+
+
+
+
+
+
+    /*
+        IEnumerator SleepWait(float seconds)
+    {
+        canMove = false;
+        rb.linearDamping = sleepDamping;
+        yield return new WaitForSeconds(seconds);
+        rb.linearDamping = defaultDamping;
+        canMove = true;
+    }
+    */
 }
