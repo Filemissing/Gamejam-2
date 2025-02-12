@@ -2096,7 +2096,7 @@ MonoBehaviour:
   headSize: 1
   playerSpeed: 300000
   timeSpeed: 1
-  book: {fileID: 6555697105454265468, guid: c16f00031f3bccf4e82d4f74c2431207, type: 3}
+  book: {fileID: 3805993329575234581, guid: dec62ff329577fa46b3ef3022beedad6, type: 3}
   endScreen: {fileID: 725609887}
   HUD: {fileID: 905059625}
   gameEnded: 0

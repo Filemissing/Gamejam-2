@@ -592,8 +592,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354774145}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.7, z: -6.3}
+  m_LocalRotation: {x: 0.20013751, y: 0, z: 0, w: 0.97976786}
+  m_LocalPosition: {x: 0, y: 4.6, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -653,6 +653,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1640333855}
   - component: {fileID: 1640333854}
+  - component: {fileID: 1640333856}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -673,11 +674,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  health: 0
+  maxHealth: 2
+  health: 2
   headSize: 0
   playerSpeed: 0
   timeSpeed: 0
-  book: {fileID: 6555697105454265468, guid: c16f00031f3bccf4e82d4f74c2431207, type: 3}
+  book: {fileID: 0}
+  endScreen: {fileID: 0}
 --- !u!4 &1640333855
 Transform:
   m_ObjectHideFlags: 0
@@ -693,6 +696,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1640333856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640333853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1486afa96b14964fa9f6006c89c5285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - books: 7
+    swords: 12
+    bricks: 0
+    cannonBalls: 1
+  - books: 13
+    swords: 12
+    bricks: 0
+    cannonBalls: 2
+  projectileCooldownMin: 0.2
+  projectileCooldownMax: 1
+  waveCooldown: 5
+  book: {fileID: 7347613383075310526, guid: c16f00031f3bccf4e82d4f74c2431207, type: 3}
+  sword: {fileID: 6053065077613815190, guid: dec62ff329577fa46b3ef3022beedad6, type: 3}
+  brick: {fileID: 5013907697387424334, guid: ae35e3facd45bc349bfdf8cb80cd2d2a, type: 3}
+  cannonBall: {fileID: 8816119654971962129, guid: bb7feadab63535641a41fb009cefdc19, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
