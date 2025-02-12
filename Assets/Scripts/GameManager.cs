@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 
 public class GameManager : MonoBehaviour
 {
@@ -35,12 +36,18 @@ public class GameManager : MonoBehaviour
         StartCoroutine(BooksLoop());
     }
 
+    [Header("UI")]
     public CanvasGroup endScreen;
+    public CanvasGroup HUD;
     public void EndGame()
     {
         endScreen.alpha = 1.0f;
         endScreen.interactable = true;
         endScreen.blocksRaycasts = true;
+
+        HUD.alpha = 0;
+
+        player.rb.linearVelocity = Vector3.zero;
         player.enabled = false;
     }
 
