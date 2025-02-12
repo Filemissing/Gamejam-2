@@ -63,9 +63,9 @@ public class GameManager : MonoBehaviour
 
         HUD.alpha = 0;
 
-        while (Time.timeScale > 0.05f)
+        while (Time.timeScale > 0.003f)
         {
-            Time.timeScale -= .05f;
+            Time.timeScale -= .003f;
             Debug.Log(Time.timeScale);
             yield return null;
         }
