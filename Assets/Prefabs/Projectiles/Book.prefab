@@ -353,8 +353,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8c760730c62f14a90920ee5d0b0124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityMultiplier: 38.2
-  velocityUpMultiplier: 24.7
+  velocityMultiplier: 42.2
+  velocityUpMultiplier: 23.2
   angularVelocityMultiplier: 3.65
   positionCurve:
     serializedVersion: 2

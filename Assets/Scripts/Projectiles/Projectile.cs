@@ -9,10 +9,10 @@ public class Projectile : MonoBehaviour
 
     [Header("Movement")]
     [Header("Parabole")]
-    [SerializeField] float velocityMultiplier = 125;
-    [SerializeField] float velocityUpMultiplier = 1.3f;
+    [SerializeField] float velocityMultiplier = 38.2f;
+    [SerializeField] float velocityUpMultiplier = 24.7f;
 
-    [SerializeField] [Range(0, 5)] float angularVelocityMultiplier = 2f;
+    [SerializeField] [Range(0, 5)] float angularVelocityMultiplier = 3.65f;
 
     [Header("Boomerang")]
     [SerializeField] protected AnimationCurve positionCurve;
@@ -111,6 +111,8 @@ public class Projectile : MonoBehaviour
         switch (pathType) // Assign randomness
         {
             case (PathType.Parabole):
+                startPosition.x = Random.Range(-3f, 3f);
+                endPosition.x = Random.Range(-3f, 3f);
                 break;
 
             case (PathType.Boomerang):
