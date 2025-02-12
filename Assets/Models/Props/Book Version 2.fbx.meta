@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ad056cd11e6f7c24fb1128294eb04d8d
+guid: 1e554a331cebd8e409135f6a319e8ecc
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,17 +7,17 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Book
+      name: BookNormalMat
     second: {fileID: 2100000, guid: 05cb35bbe6e8f2e44a6f3f23cf0add69, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Paper
+      name: PaperMat
     second: {fileID: 2100000, guid: cefbee4699f680b47b77c8cad573baf0, type: 2}
   materials:
     materialImportMode: 2
-    materialName: 0
-    materialSearch: 1
+    materialName: 1
+    materialSearch: 2
     materialLocation: 1
   animations:
     legacyGenerateAnimations: 4

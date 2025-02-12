@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b10de1025a6a5f44a9b7114856a131b4
+guid: 590fbb9234a09af42bd0fcdea2bac022
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,52 +7,17 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: BooksForBookshelves
-    second: {fileID: 2100000, guid: c2c6c8466cb005b4688baa55982427e0, type: 2}
+      name: BookNormalMat
+    second: {fileID: 2100000, guid: 05cb35bbe6e8f2e44a6f3f23cf0add69, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: CeilingMat
-    second: {fileID: 2100000, guid: 33336712569d6a14091b96764be73f49, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: FloorMat
-    second: {fileID: 2100000, guid: 5b32bc0b6321a3b49b4255da156b8a4f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: GlassMat
-    second: {fileID: 2100000, guid: e1c7b6ce9f8d13743ad533d8f8875b14, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: LadderMat
-    second: {fileID: 2100000, guid: 516f0308a76a43c4ca4930aee5e29d9e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ShelfWoodMat
-    second: {fileID: 2100000, guid: 8f41c03b86dad0a4982927284641ca38, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: WallMat
-    second: {fileID: 2100000, guid: 4e6f99c1767fbfd4d99e8b0db13189cd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: WoodLightAccentMat
-    second: {fileID: 2100000, guid: f30c35d279b03824b84b6f62a84ec4e0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: WoodLightMat
-    second: {fileID: 2100000, guid: 4aa06441f4bdba14b80937c13ef4161f, type: 2}
+      name: PaperMat
+    second: {fileID: 2100000, guid: cefbee4699f680b47b77c8cad573baf0, type: 2}
   materials:
     materialImportMode: 2
-    materialName: 1
-    materialSearch: 2
+    materialName: 0
+    materialSearch: 1
     materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
