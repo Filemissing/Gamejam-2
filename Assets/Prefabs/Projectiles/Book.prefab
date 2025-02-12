@@ -276,7 +276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5238556272242475798, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5238556272242475798, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -309,6 +309,22 @@ PrefabInstance:
     - target: {fileID: 5238556272242475798, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5748608581171233669, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8655323606537045216, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
+      propertyPath: endPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8655323606537045216, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
+      propertyPath: endPosition.z
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8655323606537045216, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
+      propertyPath: startPosition.y
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1856208585269973253, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
