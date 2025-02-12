@@ -9,9 +9,11 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody rb;
+    SphereCollider headCollider;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        headCollider = GetComponentInChildren<SphereCollider>();
     }
 
     private void Update()
@@ -29,7 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         if (rb == null) throw new NullReferenceException("Rigidbody was not assigned correctly");
 
-        float input = Input.GetAxisRaw("Horizontal");
+        float input = Input.GetAxis("Horizontal");
 
         float targetSpeed = input * speed * Time.deltaTime;
 
@@ -62,14 +64,14 @@ public class PlayerController : MonoBehaviour
         canMove = true;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.transform.CompareTag("Projectile"))
+        if (other.transform.CompareTag("Projectile"))
         {
-            if (collision.transform.TryGetComponent<Projectile>(out Projectile projectile))
+            if (other.transform.TryGetComponent<Projectile>(out Projectile projectile))
             {
-                projectile.SendMessage("Collided");
-            } 
+                projectile.SendMessage("Collided", headCollider);
+            }
         }
     }
 }

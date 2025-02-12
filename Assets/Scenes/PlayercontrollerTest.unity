@@ -981,7 +981,6 @@ MonoBehaviour:
   headSize: 1
   playerSpeed: 0
   timeSpeed: 1
-  book: {fileID: 0}
   endScreen: {fileID: 1834144643}
 --- !u!4 &1564575464
 Transform:

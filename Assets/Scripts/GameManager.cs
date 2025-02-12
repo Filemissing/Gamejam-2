@@ -1,9 +1,9 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
     public static PlayerController player;
 
     public int score = 0;
@@ -13,10 +13,27 @@ public class GameManager : MonoBehaviour
 
     public int headSize = 1;
 
-    public float playerSpeed;
-    public float timeSpeed;
+    public float playerSpeed = 5000;
+    public float timeSpeed = 1.0f;
 
     public GameObject book;
+    void Awake()
+    {
+        if (instance == null) instance = this;
+
+        if (player == null) player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+
+        IEnumerator BooksLoop()
+        {
+            while (true)
+            {
+                GameObject newBook = Instantiate<GameObject>(book);
+                yield return new WaitForSeconds(.3f);
+            }
+        }
+
+        StartCoroutine(BooksLoop());
+    }
 
     public CanvasGroup endScreen;
     public void EndGame()
@@ -27,20 +44,13 @@ public class GameManager : MonoBehaviour
         player.enabled = false;
     }
 
-    void SpawnWave()
-    {
-        
-    }
-
-
-
-
     void Update()
     {
         if (instance == null) instance = this;
 
-        if(player == null) player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        if (health <= 0) EndGame();
 
-        //GameObject newBook = Instantiate<GameObject>(book);
+        player.speed = playerSpeed;
+        Time.timeScale = timeSpeed;
     }
 }

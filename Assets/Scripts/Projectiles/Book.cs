@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Book : Projectile
 {
+    [Header("Book")]
     [SerializeField] Reward reward;
 
     enum Reward
@@ -11,9 +12,10 @@ public class Book : Projectile
         TimeSpeed
     }
 
-    public override void Collided()
+    public override void Collided(Collider other)
     {
-        base.Collided();
+        if(alreadyCollided) return;
+        base.Collided(other);
         switch (reward)
         {
             case Reward.None:
