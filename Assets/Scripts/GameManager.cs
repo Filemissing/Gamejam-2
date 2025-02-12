@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -17,9 +18,19 @@ public class GameManager : MonoBehaviour
 
 
 
-    void SpawnWave()
+
+    void Awake()
     {
-        
+        IEnumerator BooksLoop()
+        {
+            while (true)
+            {
+                GameObject newBook = Instantiate<GameObject>(book);
+                yield return new WaitForSeconds(.3f);
+            }
+        }
+
+        StartCoroutine(BooksLoop());
     }
 
 
@@ -28,7 +39,5 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (instance == null) instance = this;
-
-        GameObject newBook = Instantiate<GameObject>(book);
     }
 }
