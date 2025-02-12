@@ -979,8 +979,9 @@ MonoBehaviour:
   maxHealth: 2
   health: 2
   headSize: 1
-  playerSpeed: 5000
+  playerSpeed: 0
   timeSpeed: 1
+  book: {fileID: 0}
   endScreen: {fileID: 1834144643}
 --- !u!4 &1564575464
 Transform:
@@ -1996,21 +1997,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1620436848890754384, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
-      propertyPath: scaleFactor
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 3145037451332834995, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3434223806595837435, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5047801701077043640, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
