@@ -7,10 +7,4 @@ public class PlayerHead : MonoBehaviour
     {
         transform.localScale = Vector3.one + Vector3.one * ((GameManager.instance.headSize - 1) * scaleFactor);
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("collided Head");
-        
-    }
 }

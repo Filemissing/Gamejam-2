@@ -9,9 +9,11 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody rb;
+    SphereCollider headCollider;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        headCollider = GetComponentInChildren<SphereCollider>();
     }
 
     private void Update()
@@ -62,14 +64,13 @@ public class PlayerController : MonoBehaviour
         canMove = true;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("collided");
-        if (collision.transform.CompareTag("Projectile"))
+        if (other.transform.CompareTag("Projectile"))
         {
-            if (collision.transform.TryGetComponent<Projectile>(out Projectile projectile))
+            if (other.transform.TryGetComponent<Projectile>(out Projectile projectile))
             {
-                projectile.SendMessage("Collided");
+                projectile.SendMessage("Collided", headCollider);
             }
         }
     }
