@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class Brick : Projectile
+public class Sword : Projectile
 {
-    [Header("Brick")]
+    [Header("Sword")]
     [SerializeField] int damage;
 
     public override void Collided(Collider other)
     {
-        if(alreadyCollided) return;
+        if (alreadyCollided) return;
         base.Collided(other);
         GameManager.instance.health -= damage;
     }
