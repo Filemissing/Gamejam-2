@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
     [Header("Movement")]
     [SerializeField] protected PathType pathType;
     [SerializeField] public Vector3 startPosition = new Vector3(0, 1, 0);
+    [SerializeField] public Vector3 endPosition = new Vector3(0, 1, -5);
 
     [Header("Parabole")]
     [SerializeField] float velocityMultiplier = 125;
@@ -20,7 +21,6 @@ public class Projectile : MonoBehaviour
     [Header("Boomerang")]
     [SerializeField] protected AnimationCurve positionCurve;
     [SerializeField] protected AnimationCurve speedCurve;
-    [SerializeField] public Vector3 endPosition = new Vector3(0, 1, -5);
     [SerializeField] public float moveTime = 4;
 
     protected float startTime = 0;
@@ -195,7 +195,7 @@ public class Projectile : MonoBehaviour
                 break;
         }
 
-        Move();
+        //Move();
     }
 
 
