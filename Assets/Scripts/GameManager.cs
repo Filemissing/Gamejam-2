@@ -17,23 +17,12 @@ public class GameManager : MonoBehaviour
     public float playerSpeed = 5000;
     public float timeSpeed = 1.0f;
 
-    public GameObject book;
+    public AudioClip headPopSound;
     void Awake()
     {
         if (instance == null) instance = this;
 
         if (player == null) player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-
-        IEnumerator BooksLoop()
-        {
-            while (true)
-            {
-                GameObject newBook = Instantiate<GameObject>(book);
-                yield return new WaitForSeconds(.3f);
-            }
-        }
-
-        //StartCoroutine(BooksLoop());
     }
 
     [Header("UI")]
@@ -56,6 +45,7 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
         Destroy(player.headCollider.gameObject);
+        AudioSource.PlayClipAtPoint(headPopSound, player.headCollider.transform.position);
 
         endScreen.alpha = 1.0f;
         endScreen.interactable = true;
@@ -66,7 +56,6 @@ public class GameManager : MonoBehaviour
         while (Time.timeScale > 0.003f)
         {
             Time.timeScale -= .003f;
-            Debug.Log(Time.timeScale);
             yield return null;
         }
         if(Time.timeScale != 0)

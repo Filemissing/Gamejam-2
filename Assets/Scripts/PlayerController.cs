@@ -78,10 +78,12 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Time is in seconds")] public float sleepStopDelay = 1f;
     public float defaultMass = 1f;
     public float sleepMass = 4f;
+    public AudioClip sleepSound;
     void Sleep()
     {
         if(Input.GetKeyDown(sleepKey) && !isSleeping)
         {
+            AudioSource.PlayClipAtPoint(sleepSound, transform.position);
             isSleeping = true;
             canMove = false;
             rb.mass = sleepMass;
