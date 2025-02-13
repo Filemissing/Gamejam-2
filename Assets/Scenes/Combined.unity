@@ -1757,6 +1757,10 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1916847533973450582, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
+      propertyPath: sleepSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 406d33713fa82df4db79d3fc4839c1c0, type: 3}
+    - target: {fileID: 1916847533973450582, guid: 1327ef15b1988804e8276027d3ba2129, type: 3}
       propertyPath: defaultMass
       value: 8
       objectReference: {fileID: 0}
