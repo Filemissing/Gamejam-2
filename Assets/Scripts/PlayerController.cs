@@ -10,10 +10,13 @@ public class PlayerController : MonoBehaviour
 {
     [HideInInspector] public Rigidbody rb;
     [HideInInspector] public SphereCollider headCollider;
+    [SerializeField] Animator animator;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         headCollider = GetComponentInChildren<SphereCollider>();
+        animator = GetComponent<Animator>();
     }
 
     void CheckIsSleeping()
@@ -48,6 +51,7 @@ public class PlayerController : MonoBehaviour
         if (rb == null) throw new NullReferenceException("Rigidbody was not assigned correctly");
 
         float input = Input.GetAxis("Horizontal");
+        //animator.SetInteger("MovementDirection", (int)Input.GetAxisRaw("Horizontal"));
 
         float targetSpeed = input * speed * Time.deltaTime;
 
@@ -57,6 +61,16 @@ public class PlayerController : MonoBehaviour
         else rb.AddForce(rb.linearVelocity.x, 0, 0);
 
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -edgeDistance, edgeDistance), transform.position.y, transform.position.z);
+
+
+
+
+        if (input < 0)
+            animator.Play("WalkLeft");
+        else if (input > 0)
+            animator.Play("WalkRight");
+        else
+            animator.Play("Idle");
     }
 
     [Header("Sleep")]
@@ -64,10 +78,12 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Time is in seconds")] public float sleepStopDelay = 1f;
     public float defaultMass = 1f;
     public float sleepMass = 4f;
+    public AudioClip sleepSound;
     void Sleep()
     {
         if(Input.GetKeyDown(sleepKey) && !isSleeping)
         {
+            AudioSource.PlayClipAtPoint(sleepSound, transform.position);
             isSleeping = true;
             canMove = false;
             rb.mass = sleepMass;
