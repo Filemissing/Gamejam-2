@@ -30,7 +30,7 @@ public class Book : Projectile
                 break;
 
             case Reward.TimeSpeed:
-                GameManager.instance.timeSpeed += 1;
+                GameManager.instance.timeSpeed *= .95f;
                 GameManager.instance.headSize += 1;
                 GameManager.instance.score += 200;
                 break;
