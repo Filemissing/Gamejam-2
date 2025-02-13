@@ -200,7 +200,7 @@ MonoBehaviour:
   pathType: 0
   startPosition: {x: 0, y: 2, z: 8}
   endPosition: {x: 2.5, y: 2, z: -5}
-  velocityMultiplier: 58
+  velocityMultiplier: 61.8
   velocityUpMultiplier: 12.5
   angularVelocityMultiplier: 3.65
   positionCurve:

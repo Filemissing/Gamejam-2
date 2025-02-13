@@ -115,6 +115,18 @@ PrefabInstance:
       value: Sword
       objectReference: {fileID: 0}
     - target: {fileID: 5238556272242475798, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5238556272242475798, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5238556272242475798, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5238556272242475798, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -154,6 +166,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5238556272242475798, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5748608581171233669, guid: 1eafebaa35efce74181d65698367b96b, type: 3}
       propertyPath: m_UseGravity
       value: 1
@@ -192,7 +208,7 @@ MonoBehaviour:
   pathType: 2
   startPosition: {x: 0, y: 2, z: 8}
   endPosition: {x: 2.5, y: 2, z: -5}
-  velocityMultiplier: 58
+  velocityMultiplier: 61.8
   velocityUpMultiplier: 12.5
   angularVelocityMultiplier: 5
   positionCurve:
@@ -209,9 +225,9 @@ MonoBehaviour:
     m_RotationOrder: 4
   moveTime: 4
   hitSounds:
-  - {fileID: 8300000, guid: 142d47f471f37a8498ff0d1d39a4bb71, type: 3}
-  - {fileID: 8300000, guid: 90920c009e5470c448d4ac384ded3e87, type: 3}
-  - {fileID: 8300000, guid: ca58d29d0be8dba49b04d8b6faae846a, type: 3}
+  - {fileID: 8300000, guid: e0442d0ffb7de464d81630f18a35eadb, type: 3}
+  - {fileID: 8300000, guid: 8f9cb0be53d0a65429fc37758143dce9, type: 3}
+  - {fileID: 8300000, guid: 909ea34c2b336274db946bb94fc10594, type: 3}
   soundVolume: 1
   damage: 1
 --- !u!4 &4135497113315242275 stripped

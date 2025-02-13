@@ -16,7 +16,7 @@ public class WaveHandler : MonoBehaviour
 
 
     [Header("Projectiles")]
-    public Projectile book;
+    public Projectile[] book;
     public Projectile sword;
     public Projectile brick;
     public Projectile cannonBall;
@@ -85,7 +85,7 @@ public class WaveHandler : MonoBehaviour
 
 
             // Add more wave variables when added
-            StartCoroutine(SpawnProjectile(book, wave.books, UpdateCooldowns(cooldownListBook, highestCooldown)));
+            StartCoroutine(SpawnProjectileList(book, wave.books, UpdateCooldowns(cooldownListBook, highestCooldown)));
             StartCoroutine(SpawnProjectile(sword, wave.swords, UpdateCooldowns(cooldownListSword, highestCooldown)));
             StartCoroutine(SpawnProjectile(brick, wave.bricks, UpdateCooldowns(cooldownListBrick, highestCooldown)));
             StartCoroutine(SpawnProjectile(cannonBall, wave.cannonBalls, UpdateCooldowns(cooldownListCannonBall, highestCooldown)));
@@ -124,6 +124,17 @@ public class WaveHandler : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             Projectile newProjectile = Instantiate<Projectile>(projectile);
+            newProjectile.startPosition = new Vector3(Random.Range(-3f, 3f), 1, -.5f);
+            newProjectile.endPosition = new Vector3(Random.Range(-3f, 3f), 1, -5.3f);
+            yield return new WaitForSeconds(cooldownList[i]);
+        }
+    }
+
+    IEnumerator SpawnProjectileList(Projectile[] projectileList, int amount, List<float> cooldownList)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            Projectile newProjectile = Instantiate<Projectile>(projectileList[Random.Range(0, projectileList.Length)]);
             newProjectile.startPosition = new Vector3(Random.Range(-3f, 3f), 1, -.5f);
             newProjectile.endPosition = new Vector3(Random.Range(-3f, 3f), 1, -5.3f);
             yield return new WaitForSeconds(cooldownList[i]);

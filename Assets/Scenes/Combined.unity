@@ -270,7 +270,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 3f830266277f3f749887aff8d52fbb90, type: 3}
   m_Resource: {fileID: 8300000, guid: 3f830266277f3f749887aff8d52fbb90, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2316,22 +2316,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - books: 4
-    swords: 2
+  - books: 3
+    swords: 1
     bricks: 0
-    cannonBalls: 1
-  - books: 9
+    cannonBalls: 0
+  - books: 7
     swords: 4
     bricks: 0
-    cannonBalls: 1
+    cannonBalls: 0
   - books: 16
     swords: 7
     bricks: 0
+    cannonBalls: 1
+  - books: 22
+    swords: 11
+    bricks: 0
     cannonBalls: 2
-  projectileCooldownMin: 0.2
-  projectileCooldownMax: 1
+  projectileCooldownMin: 0.83
+  projectileCooldownMax: 1.64
   waveCooldown: 5
-  book: {fileID: 7347613383075310526, guid: c16f00031f3bccf4e82d4f74c2431207, type: 3}
+  book:
+  - {fileID: 6908703504928738369, guid: 987cbb561a83d3f4ca533207ed6639c3, type: 3}
+  - {fileID: 6908703504928738369, guid: 39a1f87b332e3f346b3478d6de50b529, type: 3}
+  - {fileID: 6908703504928738369, guid: 2c34e59116c11fc40a2eea2c32071dbb, type: 3}
+  - {fileID: 6908703504928738369, guid: faef5d8cf8f13d047b098077045a5601, type: 3}
+  - {fileID: 6908703504928738369, guid: 1614523e88ce4c64cb7068fd07636e02, type: 3}
+  - {fileID: 6908703504928738369, guid: c9d8910cc599da9499fcfc7881b0df7a, type: 3}
   sword: {fileID: 6053065077613815190, guid: dec62ff329577fa46b3ef3022beedad6, type: 3}
   brick: {fileID: 5013907697387424334, guid: ae35e3facd45bc349bfdf8cb80cd2d2a, type: 3}
   cannonBall: {fileID: 8816119654971962129, guid: bb7feadab63535641a41fb009cefdc19, type: 3}
