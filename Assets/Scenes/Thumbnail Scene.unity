@@ -1026,6 +1026,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c0ad32a0789bce54c8d49abda8e4eb2e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c0ad32a0789bce54c8d49abda8e4eb2e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c0ad32a0789bce54c8d49abda8e4eb2e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c0ad32a0789bce54c8d49abda8e4eb2e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.752
       objectReference: {fileID: 0}
@@ -1064,6 +1076,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c0ad32a0789bce54c8d49abda8e4eb2e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -88.815
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c0ad32a0789bce54c8d49abda8e4eb2e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c0ad32a0789bce54c8d49abda8e4eb2e, type: 3}
       propertyPath: m_Name
@@ -1114,7 +1130,7 @@ MonoBehaviour:
   headSize: 1
   playerSpeed: 300000
   timeSpeed: 1
-  book: {fileID: 6555697105454265468, guid: c16f00031f3bccf4e82d4f74c2431207, type: 3}
+  headPopSound: {fileID: 0}
   endScreen: {fileID: 0}
   HUD: {fileID: 0}
   gameEnded: 0
