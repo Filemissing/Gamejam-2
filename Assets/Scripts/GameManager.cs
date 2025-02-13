@@ -40,8 +40,6 @@ public class GameManager : MonoBehaviour
         while (player.headCollider.transform.localScale.x < headaExplodeSize)
         {
             player.headCollider.transform.localScale = player.headCollider.transform.localScale + Vector3.one * .05f;
-            Debug.Log(player.headCollider.transform.localScale);
-            Debug.Log(headaExplodeSize);
             yield return null;
         }
         Destroy(player.headCollider.gameObject);
