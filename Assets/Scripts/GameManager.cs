@@ -71,5 +71,7 @@ public class GameManager : MonoBehaviour
 
         player.speed = playerSpeed;
         Time.timeScale = timeSpeed;
+
+        timeSpeed = Mathf.Lerp(timeSpeed, 1.0f, .5f);
     }
 }
